@@ -25,7 +25,7 @@ SECRET_KEY = 'kd@d+k8d#sbu@p_%!!h!*3+(4-^hrkpy+p5bn6u19-+@re3g40'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rocky-bastion-78414.herokuapp.com/']
+ALLOWED_HOSTS = ['rocky-bastion-78414.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
