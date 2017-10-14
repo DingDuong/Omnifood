@@ -1,0 +1,72 @@
+{% extends 'restaurant/base.html' %}
+
+{% block script %}
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+{% endblock %}
+
+{% block page %}
+  <div class="row">
+    <div class="col-lg-8">
+      <!-- Revenue by week -->
+      <div class="panel">
+        <div class="panel-heading bt-blue">
+          <h4 class="panel-title text-center text-white">
+            Revenue by Week
+          </h4>
+        </div>
+        <div class="panel-body">
+          <canvas id="revenueChart" height="110"></canvas>
+          <script>
+            var ctx = document.getElementById("revenueChart").getContext("2d")
+            var data = {
+              labels: ["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"],
+              datasets: [
+                {
+                  label: "Total Revenue",
+                  backgroundColor: "rgba(54, 162, 235,0.9)",
+                  hoverbackgroundColor: "rgba(54, 162, 235,1)",
+                  data: {{ revenue }}
+                }
+              ]
+            };
+
+            new Chart(ctx, {
+              type: 'bar',
+              data: data
+            })
+          </script>
+        </div>
+      </div>
+      <!-- Orders by week -->
+      <div class="panel">
+        <div class="panel-heading bt-blue">
+          <h4 class="panel-title text-center text-white">
+            Order by Week
+          </h4>
+        </div>
+        <div class="panel-body">
+          <canvas id="orderChart" height="110"></canvas>
+          <script>
+            var ctx = document.getElementById("orderChart").getContext("2d")
+            var data = {
+              labels: ["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"],
+              datasets: [
+                {
+                  label: "Number of Orders",
+                  backgroundColor: "rgba(255, 99, 132,0.9)",
+                  hoverbackgroundColor: "rgba(255, 99, 132,1)",
+                  data: {{ orders }}
+                }
+              ]
+            };
+
+            new Chart(ctx, {
+              type: 'bar',
+              data: data
+            })
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
