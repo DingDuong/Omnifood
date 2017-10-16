@@ -9,7 +9,7 @@
     <div class="col-lg-8">
       <!-- Revenue by week -->
       <div class="panel">
-        <div class="panel-heading bt-blue">
+        <div class="panel-heading bg-blue">
           <h4 class="panel-title text-center text-white">
             Revenue by Week
           </h4>
@@ -39,7 +39,7 @@
       </div>
       <!-- Orders by week -->
       <div class="panel">
-        <div class="panel-heading bt-blue">
+        <div class="panel-heading bg-blue">
           <h4 class="panel-title text-center text-white">
             Order by Week
           </h4>
@@ -62,6 +62,69 @@
 
             new Chart(ctx, {
               type: 'bar',
+              data: data
+            })
+          </script>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <!-- TOP 3 MEALS -->
+      <div class="panel">
+        <div class="panel-heading bg-blue">
+          <h4 class="panel-title text-center text-white">
+            Top 3 Meals
+          </h4>
+        </div>
+        <div class="panel-body">
+          <canvas id="mealChart" height="242"></canvas>
+          <script>
+            var ctx = document.getElementById("mealChart").getContext("2d")
+            var data = {
+              labels: {{ meal.labels|safe }},
+              datasets: [
+                {
+                  backgroundColor: [
+                    "#36A2EB", "#FFCE56", "#FF6384"
+                  ],
+                  data: {{ meal.data }}
+                }
+              ]
+            };
+
+            new Chart(ctx, {
+              type: 'pie',
+              data: data
+            })
+          </script>
+        </div>
+      </div>
+
+      <!-- TOP 3 DRIVER ALL TIME -->
+      <div class="panel">
+        <div class="panel-heading bg-blue">
+          <h4 class="panel-title text-center text-white">
+            Top 3 Drivers
+          </h4>
+        </div>
+        <div class="panel-body">
+          <canvas id="driverChart" height="242"></canvas>
+          <script>
+            var ctx = document.getElementById("driverChart").getContext("2d")
+            var data = {
+              labels: {{ driver.labels|safe }},
+              datasets: [
+                {
+                  backgroundColor: [
+                    "#36A2EB", "#FFCE56", "#FF6384"
+                  ],
+                  data: {{ driver.data }}
+                }
+              ]
+            };
+
+            new Chart(ctx, {
+              type: 'pie',
               data: data
             })
           </script>
