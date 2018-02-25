@@ -120,7 +120,7 @@ h2:after {
 	text-align: center;
 	color: #e67e22;
 	margin-right: 10px;
-	
+
 	/*secrets to align text and icons*/
 	font-size: 120%;
 	line-height: 120%;
@@ -152,7 +152,7 @@ a:active {
 /* BUTTONS */
 /* -----------------------------*/
 
-.btn:link, 
+.btn:link,
 .btn:visited,
 input[type = submit] {
     display: inline-block;
@@ -227,7 +227,7 @@ header {
     margin-top: 20px;
 }
 
-.logo-black { 
+.logo-black {
 	display: none;
 	height: 50px;
     width: auto;
@@ -353,7 +353,7 @@ header {
     opacity: 1;
     -webkit-transform: scale(1.03);
     transform: scale(1.03);
-} 
+}
 
 /* -----------------------------*/
 /*HOW IT WORKS */
@@ -592,7 +592,7 @@ footer {
 
 .footer-nav {
 	list-style: none;
-	float: left;
+  	float: left;
 }
 
 .social-links {

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from foodtaskerapp.forms import UserForm, RestaurantForm, UserFormForEdit, MealForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from foodtaskerapp.models import Meal, Order, Driver
+from foodtaskerapp.models import Meal, Order, Driver, Customer
 from django.db.models import Sum, Case, When, Count
 
 # Create your views here.
@@ -83,6 +83,28 @@ def restaurant_order(request):
 
     orders = Order.objects.filter(restaurant = request.user.restaurant).order_by("-id")
     return render(request, 'restaurant/order.html', {"orders": orders})
+
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_customer(request):
+    customers = Customer.objects.annotate(
+        total_order = Count(
+            Case(
+                When(order__restaurant = request.user.restaurant, then= 1)
+            )
+        )
+    ).annotate(total_spent = Sum('order__total')).order_by("-total_order")
+    return render(request, 'restaurant/customer.html', {"customers": customers})
+
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_driver(request):
+    drivers = Driver.objects.annotate(
+        total_order = Count(
+            Case(
+                When(order__restaurant = request.user.restaurant, then= 1)
+            )
+        )
+    ).order_by("-total_order")
+    return render(request, 'restaurant/driver.html', {"drivers": drivers})
 
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_report(request):

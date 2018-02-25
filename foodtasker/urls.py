@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^restaurant/meal/edit/(?P<meal_id>\d+)/$', views.restaurant_edit_meal, name = 'restaurant-edit-meal'),
     url(r'^restaurant/order/$', views.restaurant_order, name = 'restaurant-order'),
     url(r'^restaurant/report/$', views.restaurant_report, name = 'restaurant-report'),
+    url(r'^restaurant/customer/$', views.restaurant_customer, name = 'restaurant-customer'),
+    url(r'^restaurant/driver/$', views.restaurant_driver, name = 'restaurant-driver'),
 
 
     # Sign In/Sign Up/Sign Out

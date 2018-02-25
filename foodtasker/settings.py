@@ -152,8 +152,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # Facebook configuration
-SOCIAL_AUTH_FACEBOOK_KEY = '167539437157829'
-SOCIAL_AUTH_FACEBOOK_SECRET = '8a8aa66844c0d5f17d7a2186942afab5'
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
 
 # Define SOCIAL_AUTH_FACEBOOK_SCOPE to get extra permissions from facebook. Email is not sent by default, to get it, you must request the email permission:
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
@@ -175,4 +175,4 @@ SOCIAL_AUTH_PIPELINE = (
 )
 
 # Place stripe api key from gitignore
-STRIPE_API_KEY = ''
+STRIPE_API_KEY = os.environ.get('STRIPE_API_KEY')

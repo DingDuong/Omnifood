@@ -50,6 +50,10 @@
       class="list-group-item {% if request.path == restaurant_meal_url %} active {% endif %}">Meals</a>
     <a href="{% url 'restaurant-report' %}"
       class="list-group-item {% if request.path == restaurant_report_url %} active {% endif %}">Reports</a>
+    <a href="{% url 'restaurant-customer' %}"
+      class="list-group-item {% if request.path == restaurant_customer_url %} active {% endif %}">Customers</a>
+    <a href="{% url 'restaurant-driver' %}"
+      class="list-group-item {% if request.path == restaurant_driver_url %} active {% endif %}">Drivers</a>
 
     <span class="text-uppercase">Profile</span>
     <a href="{% url 'restaurant-account' %}"

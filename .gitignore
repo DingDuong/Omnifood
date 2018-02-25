@@ -2,4 +2,3 @@ __pycache__/
 db.sqlite3
 *.pyc
 
-STRIPE_API_KEY = 'sk_test_4l8CDay3hk9vy0VysSmJhCV3'

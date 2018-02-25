@@ -55,7 +55,7 @@ class Order(models.Model):
         (DELIVERED, "Delivered"),
     }
 
-    customer = models.ForeignKey(Customer)
+    customer = models.ForeignKey(Customer, related_name='order')
     restaurant = models.ForeignKey(Restaurant)
     driver = models.ForeignKey(Driver, blank = True, null = True)
     address = models.CharField(max_length = 500)
